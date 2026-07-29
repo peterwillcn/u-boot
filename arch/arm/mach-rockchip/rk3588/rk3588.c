@@ -400,10 +400,6 @@ int ft_system_setup(void *blob, struct bd_info *bd)
 	if (ip_state[0] & FAIL_CPU_CLUSTER2)
 		ip_state[0] |= FAIL_CPU_CLUSTER2;
 
-	/* policy: always fail one big core cluster on rk3582 */
-	if (!(ip_state[0] & (FAIL_CPU_CLUSTER1 | FAIL_CPU_CLUSTER2)))
-		ip_state[0] |= FAIL_CPU_CLUSTER2;
-
 	/* policy: always fail gpu on rk3582 */
 	ip_state[1] |= FAIL_GPU;
 
